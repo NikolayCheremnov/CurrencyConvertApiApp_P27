@@ -182,6 +182,6 @@ namespace CurrencyConvertApiApp.Api
             }
 
             return null;
-        } 
+        }
     }
 }

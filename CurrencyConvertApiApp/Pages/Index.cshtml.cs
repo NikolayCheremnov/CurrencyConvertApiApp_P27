@@ -21,8 +21,8 @@ namespace CurrencyConvertApiApp.Pages
 
         // входные данные
         public string From { get; private set; } = string.Empty;
-        public string To {  get; private set; } = string.Empty;
-        public decimal Value {  get; private set; }
+        public string To { get; private set; } = string.Empty;
+        public decimal Value { get; private set; }
 
         // результат
         public decimal ResultValue { get; private set; }
@@ -44,10 +44,12 @@ namespace CurrencyConvertApiApp.Pages
             try
             {
                 ResultValue = _converter.Convert(From, To, Value);
-            } catch (InvalidValueException)
+            }
+            catch (InvalidValueException)
             {
                 ErrorMessage = "Отправлено некорректное значение для конвертации";
-            } catch (UnsupportedCurrencyException)
+            }
+            catch (UnsupportedCurrencyException)
             {
                 ErrorMessage = "Одна из введенных валют не поддерживается";
             }

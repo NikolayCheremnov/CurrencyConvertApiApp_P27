@@ -7,7 +7,7 @@ namespace CurrencyConvertApiApp.Converter
     public class SimpleCurrencyConverter : CurrencyConverter
     {
         private readonly Dictionary<string, decimal> _rates = new(); // сохраненные курсы валют
-        
+
         public SimpleCurrencyConverter(Provider provider)
         {
             List<ExchangeRate> exchangeRates = provider.GetRates("RUB");

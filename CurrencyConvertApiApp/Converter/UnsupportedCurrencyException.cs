@@ -2,7 +2,8 @@
 {
     public class UnsupportedCurrencyException : ApplicationException
     {
-        public UnsupportedCurrencyException(string code) : 
-            base($"currency code '{code}' is unsupported") { }
+        public UnsupportedCurrencyException(string code) :
+            base($"currency code '{code}' is unsupported")
+        { }
     }
 }
