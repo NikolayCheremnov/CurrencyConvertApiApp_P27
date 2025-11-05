@@ -1,0 +1,53 @@
+﻿@page
+@model CurrencyConvertApiApp.Pages.IndexModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter App</title>
+</head>
+<body>
+    <h1>Конвертация валют</h1>
+
+    <h2>Конвертация:</h2>
+
+    <!-- форма ввода данных для конвертации -->
+    <form action="" method="get">
+        <!-- исходная валюта -->
+        <label for="from">ИЗ:</label>
+        <input type="text" id="from" name="from" required pattern="[A-Z]{3}" value="@Model.From" />
+
+        <!-- целевая валюта -->
+        <label for="to">В:</label>
+        <input type="text" id="to" name="to" required pattern="[A-Z]{3}" value="@Model.To" />
+
+        <!-- конвертируемое значение -->
+        <label for="value">ЗНАЧЕНИЕ:</label>
+        <input type="number" id="value" name="value" required step="any" min="0" value="@Model.Value" />
+
+        <!-- кнопка отправки формы -->
+        <button>Конвертировать</button>
+    </form>
+
+    <h2>Результат:</h2>
+
+    @if (Model.ErrorMessage == null) {
+        // если нет ошибки, то вывести результат конвертации
+        <p>@Model.Value @Model.From = @Model.ResultValue @Model.To</p>
+    } else {
+        // иначе вывести ошибку
+        <p>Ошибка: @Model.ErrorMessage</p>
+    }
+
+
+    <h2>Подерживаемые валюты:</h2>
+    <ul>
+        <!-- вывод поддерживаемых валют в цикле шаблонизатора -->
+        @foreach (string currency in Model.SupportedCurrencies)
+        {
+            <li>@currency</li>
+        }
+    </ul>
+</body>
+</html>
