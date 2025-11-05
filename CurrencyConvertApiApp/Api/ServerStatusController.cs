@@ -12,7 +12,7 @@ namespace CurrencyConvertApiApp.Api
         public StringMessage GetStatus()
         {
             return new StringMessage(
-                Message: "server is running", 
+                Message: "server is running",
                 Time: DateTime.UtcNow
             );
         }
