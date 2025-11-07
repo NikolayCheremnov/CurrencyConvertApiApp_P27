@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: currency-converter-api-app
+    build:
+      dockerfile: ./CurrencyConvertApiApp/Dockerfile
+      context: .
+    ports:
+      - "80:80"
