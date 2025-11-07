@@ -25,7 +25,9 @@ jobs:
           tar --exclude='.git' \
               --exclude='*/bin' \
               --exclude='*/obj' \
-              -czf ${{ env.REMOTE_ARCHIVE }} .
+              --exclude='${{ env.REMOTE_ARCHIVE }}' \
+              -czf /tmp/${{ env.REMOTE_ARCHIVE }} .
+          mv /tmp/${{ env.REMOTE_ARCHIVE }} .
 
       - name: Ensure remote tmp directory
         uses: appleboy/ssh-action@v1.1.0
