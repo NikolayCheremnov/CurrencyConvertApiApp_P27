@@ -69,10 +69,10 @@ jobs:
 
             if [ -d "$APP_DIR" ]; then
               echo "Stopping existing containers"
-              (cd "$APP_DIR" && docker-compose stop || true)
+              (cd "$APP_DIR" && sudo docker compose stop || true)
               rm -rf "$APP_DIR"
             fi
 
             mv "$TMP_DIR" "$APP_DIR"
             cd "$APP_DIR"
-            docker-compose up -d --build
+            sudo docker compose up -d --build
