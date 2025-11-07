@@ -24,5 +24,8 @@ var app = builder.Build();
 app.MapControllers();
 app.MapRazorPages();
 
+// новая фича
+app.MapGet("/api/time", () => DateTime.UtcNow);
+
 // запуск приложения
 app.Run();
